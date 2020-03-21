@@ -10,8 +10,7 @@ namespace ConsoleApp4
             {
                 Path = @"C:\hello.png"
             };
-
-
+            var type = typeof(Photo);
         }
     }
 }
