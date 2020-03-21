@@ -4,7 +4,8 @@ using System.Text;
 
 namespace ConsoleApp4
 {
-    public class GeoAttribute:Attribute
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Constructor)]
+    public class GeoAttribute : Attribute
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -22,7 +23,7 @@ namespace ConsoleApp4
 
         public override string ToString()
         {
-            return $"[{X}:{Y}]"; 
+            return $"[{X}:{Y}]";
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ConsoleApp4
 {
@@ -11,7 +12,7 @@ namespace ConsoleApp4
                 Path = @"C:\hello.png"
             };
             var type = typeof(Photo);
-            var attributes = type.GetCustomAttributes(false);
+            var attributes = type.GetCustomAttributes(false); //false отключает отображение наследников
 
             foreach (var attribute in attributes)
             {
@@ -22,7 +23,17 @@ namespace ConsoleApp4
 
             foreach (var prop in properties)
             {
-                Console.WriteLine(prop.PropertyType.Name +" "+ prop.Name);
+                var attrs = prop.GetCustomAttributes(false);
+                if (attrs.Any(a => a.GetType() == typeof(GeoAttribute)))
+                {
+                    Console.WriteLine(prop.PropertyType.Name + " " + prop.Name);
+                }
+
+
+                //foreach (var attr in attrs)
+                //{
+                //    Console.WriteLine(attr);
+                //}
             }
 
             Console.ReadLine();
