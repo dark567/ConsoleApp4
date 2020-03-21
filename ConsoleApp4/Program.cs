@@ -11,6 +11,21 @@ namespace ConsoleApp4
                 Path = @"C:\hello.png"
             };
             var type = typeof(Photo);
+            var attributes = type.GetCustomAttributes(false);
+
+            foreach (var attribute in attributes)
+            {
+                Console.WriteLine(attribute);
+            }
+
+            var properties = type.GetProperties();
+
+            foreach (var prop in properties)
+            {
+                Console.WriteLine(prop.PropertyType.Name +" "+ prop.Name);
+            }
+
+            Console.ReadLine();
         }
     }
 }

@@ -4,9 +4,10 @@ using System.Text;
 
 namespace ConsoleApp4
 {
-    [Geo(10, 20)]
+    
     public class Photo
     {
+        [Geo(10, 20)]
         public string Name { get; set; }
         public string Path { get; set; }
 
@@ -15,5 +16,6 @@ namespace ConsoleApp4
             if (string.IsNullOrEmpty(name))
                 this.Name = name;
         }
+
     }
 }
